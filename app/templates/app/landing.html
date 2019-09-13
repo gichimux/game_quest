@@ -1,0 +1,155 @@
+{% load static %}
+<! DOCTYPE html>
+<html>
+<head>
+   <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<link href="https://fonts.googleapis.com/css?family=Black+Ops+One|Monoton|Raleway&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdn.lineicons.com/1.0.1/LineIcons.min.css">
+<link rel="stylesheet" href="{% static 'css/landing.css' %}">
+<title>Game Quest Landing</title>
+<style>
+ .header-image{
+      height: 500px;
+      background-image: url('{% static 'img/bg0.jpg' %}');
+      background-repeat: no-repeat;
+      background-size: cover;
+  }
+</style>
+</head>
+<body>
+
+
+<nav class="nav">
+<div class="topnav">
+  <a id="logo" href="/" style="font-family: 'Black Ops One', cursive;
+                               font-size: 38px;
+                               color: orange;
+                               padding: 14px 16px;
+                               text-decoration: none;
+
+
+">Game Quest</a>
+<div class="dropdown">
+  <button class="dropbtn" style="font-family: 'Black Ops One', cursive;
+                                    float: center;
+">Who we are</button>
+  <div class="dropdown-content">
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+    <a href="#works">How it works</a>
+  </div>
+</div>
+ 
+  <a href="{% url 'index'%}" id ="login-btn" style="float:right;
+                                     font-family: 'Black Ops One', cursive;
+                                     color: lime;
+                                     border-left:1px dashed red;
+                                     font-size:18px;
+
+">> Login ></a>
+
+</div>
+</nav>
+<div class="row">
+  <div class="leftcolumn">
+    <div>
+      <div class="header-image">
+        <div class="text">
+        <p id="head-text">Welcome Gamer, <br> Are you ready for a quest?</p>
+    <button class="button" href="/accounts/register/">Sign up >></button>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="main"><hr><br>
+      <p style=" font-family: 'Black Ops One', cursive;
+                  font-size: 30px;
+                  text-align: center;
+                  color: orange">* How it works *</p>
+         <div class="row">         
+            <div class="column">
+            <i class="lni-power-switch" style="font-size:50px;"></i><br>
+            <p id="works-text">sign up for an account account and log in for access </p>
+            </div>
+    
+            <div class="column">
+            <i class="lni-user" style="font-size:50px;"></i><br>
+            <p id="works-text">Update your profile information</p>
+            </div>
+
+            <div class="column">
+            <i class="lni-target" style="font-size:50px;"></i><br>
+            <p id="works-text">register for tournaments and start winning!</p>
+            </div>
+            </div><br><br><hr>
+      <div id="about">
+      <p style=" font-family: 'Black Ops One', cursive;
+                  font-size: 30px;
+                  text-align: center;
+                  color: orange">* About Us *</p>
+      <div class="about" style="margin:auto;">
+      <p style="font-family: 'Raleway', sans-serif; text-align: center; font-size: 20px;">
+      Game Quest is a platform that enables you to take part in competitive video<br> game tournaments where you get to have fun and test your skills againist fellow gamers.<br><br> The best part is, 
+      you not only have fun but you also get to take away an actual cash price if you win. <br><br>Question is, Do you think You are good enough?
+      </p><br><br></div><hr><hr><br>
+      </div>
+      <div id="contact">
+      <p style=" font-family: 'Black Ops One', cursive;
+                  font-size: 30px;
+                  text-align: center;
+                  color: orange">* Contact Us *</p>
+
+{% comment %} contact form  {% endcomment %}
+<div class="container">
+  <form action="#">
+
+    <label for="fname" id="fname-text">First Name</label>
+    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+    <label for="lname" id= "lname-text">Last Name</label>
+    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+
+    <label for="subject" id="sub-text">Subject</label>
+    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+
+    <input type="submit" value="Send">
+
+  </form>
+</div>      
+</div>
+
+</div>
+  </div>
+  <div class="rightcolumn">
+    <p style="text-align: center;
+               font-family: 'Black Ops One', cursive;
+               color: orange;
+               font-size: 30px;
+">Ongoing Quests</p>
+{% for i in quest %}
+    <div class="card" style="border-radius: 10px;">
+      {% comment %} <div class="fakeimg" style="height:100px; "><img src="{{i.tournament_pic.url}}"></div> {% endcomment %}
+      <p> {{i.name}} </p>
+    
+    </div>
+    {% endfor %}
+  
+  </div>
+</div>
+
+<div class="footer">
+  <p style="font-family: 'Black Ops One', cursive;
+            font-size: 50px;
+            text-align: center;
+            color:#F8CF72">Gamer Quest</p>
+            <p style="font-family: 'Black Ops One', cursive;
+                  font-size: 18px;
+                  text-align: center;
+                  color: lime;"> &#169 2019 coded by gichimu </p>
+</div>
+
+</body>
+</html>

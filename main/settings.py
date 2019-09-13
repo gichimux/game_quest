@@ -70,7 +70,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app',
     'rest_framework',
-    'bootstrap4'
+    'bootstrap4',
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [
@@ -103,10 +104,17 @@ TEMPLATES = [
     },
 ]
 
+
+
 WSGI_APPLICATION = 'main.wsgi.application'
 
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/landing'
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    )
+}
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -152,3 +160,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Configure Django App for Heroku.
 django_heroku.settings(locals())
+
